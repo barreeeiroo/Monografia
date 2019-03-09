@@ -1,3 +1,5 @@
 scrapper/fourFactors/out\.json
 scrapper/fourFactors/csv/*
 !scrapper/fourFactors/csv/.gitkeep
+
+fourFactors/fourFactors\.csv
