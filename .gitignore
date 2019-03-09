@@ -1,0 +1,3 @@
+scrapper/fourFactors/out\.json
+scrapper/fourFactors/csv/*
+!scrapper/fourFactors/csv/.gitKeep
