@@ -8,9 +8,9 @@ En cada subcarpeta de la siguiente lista se encuentra un archivo README.md con m
 
 ```bash
 .
-├── clustering   - Software usado para el aprendizaje automatizado NO supervisado
-├── fourFactors  - Software usado para el aprendizaje automatizado supervisado
-└── scrapper     - Software desarrollado para la obtención de los datos
+├── clustering/   - Software usado para el aprendizaje automatizado NO supervisado
+├── fourFactors/  - Software usado para el aprendizaje automatizado supervisado
+└── scrapper/     - Software desarrollado para la obtención de los datos
 ```
 
 ---
