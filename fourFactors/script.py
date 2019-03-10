@@ -1,7 +1,17 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# We made all required imports
+
+##############################################################################################
+#                                         RECOMMENDED                                        #
+#                It is highly advised to read the following iPython notebook,                #
+#                     as it contains the same code but better commented.                     #
+#   https://github.com/barreeeiroo/Monografia/blob/master/fourFactors/Four%20Factors.ipynb   #
+###############################################################################################
+
+
+
+# We make all required imports
 import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
