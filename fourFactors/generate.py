@@ -20,6 +20,12 @@ season_tov = []
 season_orb = []
 season_ftr = []
 season_scr = []
+season_won = []
+season_efg_opp = []
+season_tov_opp = []
+season_orb_opp = []
+season_ftr_opp = []
+season_scr_opp = []
 
 
 parsed = []
@@ -35,7 +41,14 @@ for f in files:
     match_drb = 0
     match_scr = 0
 
-    # Opponent variables
+    # Opponent team variables
+    match_fgm_opp = 0
+    match_fga_opp = 0
+    match_ftm_opp = 0
+    match_fta_opp = 0
+    match_3pm_opp = 0
+    match_to_opp  = 0
+    match_orb_opp = 0
     match_drb_opp = 0
     match_scr_opp = 0
 
@@ -74,30 +87,56 @@ for f in files:
                 match_scr += int(pts)
 
 
-        # And later on the opponent
+        # And the same for the opponent
         for index, player_opp in data_opp.iterrows():
-            drb = player_opp['Def']
-            pts = player_opp['PTS']
+            fgma  = player_opp['FGM-A'].split("-")
+            ftma  = player_opp['FTM-A'].split("-")
+            v3pma = player_opp['3PM-A'].split("-")
+            to    = player_opp['TO']
+            orb   = str(player_opp['Off'])
+            drb   = player_opp['Def']
+            pts   = player_opp['PTS']
 
-            # We only need from the opponent the DRB data and the score
+            if player_opp['#'] != "&nbsp;":
+                match_fgm_opp += int(fgma[0])
+                match_fga_opp += int(fgma[1])
+                match_3pm_opp += int(v3pma[0])
+                match_ftm_opp += int(ftma[0])
+                match_fta_opp += int(ftma[1])
+                match_to_opp  += int(to)
+
+            if orb != "&nbsp;":
+                match_orb_opp += int(orb.split('.', 1)[0])
             if drb != "&nbsp;":
                 match_drb_opp += int(drb)
             if pts != "&nbsp;":
                 match_scr_opp += int(pts)
 
-        # Calculate the four factors of the match
+        # Calculate the four (eight in fact) factors of the match
         efg = (match_fgm+0.5*match_3pm)/match_fga
         tov = match_to/(match_fga+0.44*match_fta+match_to)
         orb = match_orb/(match_orb+match_drb_opp)
         ftr = match_ftm/match_fta
+        scr = match_scr
         won = 1 if match_scr>match_scr_opp else 0
+        efg_opp = (match_fgm_opp+0.5*match_3pm_opp)/match_fga_opp
+        tov_opp = match_to_opp/(match_fga_opp+0.44*match_fta_opp+match_to_opp)
+        orb_opp = match_orb_opp/(match_orb_opp+match_drb)
+        ftr_opp = match_ftm_opp/match_fta_opp
+        scr_opp = match_scr_opp
 
         # Send the stats to the season variables
         season_efg.append(efg)
         season_tov.append(tov)
         season_orb.append(orb)
         season_ftr.append(ftr)
-        season_scr.append(won)
+        season_scr.append(scr)
+        season_won.append(won)
+        season_efg_opp.append(efg_opp)
+        season_tov_opp.append(tov_opp)
+        season_orb_opp.append(orb_opp)
+        season_ftr_opp.append(ftr_opp)
+        season_scr_opp.append(scr_opp)
 
 
 
@@ -108,10 +147,19 @@ print(season_tov)
 print(season_orb)
 print(season_ftr)
 print(season_scr)
+print(season_won)
+print(season_efg_opp)
+print(season_tov_opp)
+print(season_orb_opp)
+print(season_ftr_opp)
+print(season_scr_opp)
 """
 
 
 ### WRITE FOUR FACTORS TO CSV ###
 
-df = pd.DataFrame(data={"efg":season_efg, "tov":season_tov, "orb":season_orb, "ftr":season_ftr, "won":season_scr})
+df = pd.DataFrame(data={
+    "efg":season_efg, "tov":season_tov, "orb":season_orb, "ftr":season_ftr, "scr":season_scr,
+    "won":season_won,
+    "efg_opp":season_efg_opp, "tov_opp":season_tov_opp, "orb_opp":season_orb_opp, "ftr_opp":season_ftr_opp, "scr_opp":season_scr_opp})
 df.to_csv(os.path.dirname(__file__)+"/fourFactors.csv", sep=',',index=False)

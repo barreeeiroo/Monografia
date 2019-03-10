@@ -3,3 +3,4 @@ scrapper/fourFactors/csv/*
 !scrapper/fourFactors/csv/.gitkeep
 
 fourFactors/fourFactors\.csv
+fourFactors/\.ipynb_checkpoints/
