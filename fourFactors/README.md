@@ -16,3 +16,5 @@ En la carpeta `fourFactors/` se puede encontrar los siguientes archivos:
 ## Uso de los archivos
 
 - `generate.py`: Devuelve 4 listas, cada una con los four factors de cada partido jugado. Los archivos de entrada se encuentran en la carpeta `../scrapper/fourFactors/csv/`, y han de ser generados antes de ejecutar este script de Python. El script de Python general el archivo `fourFactors.csv` que es usado en el script de machine learning.
+
+- `script.py`: Es el script encargado de obtener los pesos y comprobar la fiabilidad del modelo en cuestión. Para poder entenderlo mejor, se recomienda abrir el archivo `Four Factors.ipynb` ya que es un archivo de iPython Notebook con muchos comentarios y Github lo hace más agradable a la lectura.
