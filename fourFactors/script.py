@@ -7,7 +7,7 @@
 #                It is highly advised to read the following iPython notebook,                #
 #                     as it contains the same code but better commented.                     #
 #   https://github.com/barreeeiroo/Monografia/blob/master/fourFactors/Four%20Factors.ipynb   #
-###############################################################################################
+##############################################################################################
 
 
 
