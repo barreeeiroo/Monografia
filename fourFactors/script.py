@@ -31,7 +31,7 @@ x_opp = data[['efg_opp', 'ftr_opp', 'orb_opp', 'tov_opp']]
 y_opp = data['scr_opp']
 
 # We designate a random integer in order to split the data
-random = randint(0, 9)
+random = randint(0, 99)
 # We split the data, so we keep some of them for testing purposes
 x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=random)
 x_train_opp, x_test_opp, y_train_opp, y_test_opp = train_test_split(x_opp, y_opp, random_state=random)
