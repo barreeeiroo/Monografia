@@ -20,4 +20,4 @@ En la carpeta `scrapper/` se puede encontrar los siguientes archivos:
 
 ## Uso de los archivos
 
-- `fourFactors/matches.php`: En la variable `$URL` se coloca la URL de la temporada de la que se quiere obtener los datos, y se ejecuta con `php matches.php`. Comenzará a mapear todos los partidos de la temporada en cuestión, y generará un archivo llamado `fourFactors/out.json` y varios `fourFactors/csv/output##*.csv` para poder trabajar con estos. En los archivos CSV, `##` significa el número de partido de la temporada, y `*` será o bien A (si se trata de los datos del equipo deseado) o bien B (si son los del oponente).
+- `fourFactors/matches.php`: En la variable `$SEASON` se coloca la temporada de la que se quiere obtener los datos y en `$TEAM` el equipo, y se ejecuta con `php matches.php`. Comenzará a mapear todos los partidos de la temporada en cuestión, y generará un archivo llamado `fourFactors/out.json` y varios `fourFactors/csv/output##*.csv` para poder trabajar con estos. En los archivos CSV, `##` significa el número de partido de la temporada, y `*` será o bien A (si se trata de los datos del equipo deseado) o bien B (si son los del oponente).

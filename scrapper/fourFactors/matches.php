@@ -3,6 +3,10 @@
 // Include the parsing library
 include_once('dom.php');
 
+// CONFIG VARIABLES
+$SEASON = "2018";
+$TEAN = "Rio-Natura-Monbus-Obradoiro";
+
 // This function is for debug only, to check the JSON output format
 function indent($json) {
     $result      = '';
@@ -42,17 +46,16 @@ function indent($json) {
     return $result;
 }
 
-function get_home($url) {
+function get_home($url, $TEAM) {
     $tmp = substr(str_replace("https://basketball.realgm.com/international/boxscore/", "", $url), 11);
     // CHANGE "Rio-Natura-Monbus-Obradoiro" TO CHANGE THE TEAM FOR THE SCRIPT
-    if (substr($tmp, 0, strlen("Rio-Natura-Monbus-Obradoiro")) === "Rio-Natura-Monbus-Obradoiro") {
+    if (substr($tmp, 0, strlen($TEAM)) === $TEAM) {
         return 1;
     }
     return 2;
 }
 
-// CHANGE THIS IN ORDER TO CHANGE THE SEASON
-$URL = "https://basketball.realgm.com/international/league/4/Spanish-ACB/team/651/Rio-Natura-Monbus-Obradoiro/schedule/2018";
+$URL = "https://basketball.realgm.com/international/league/4/Spanish-ACB/team/651/".$TEAM."/schedule/".$SEASON;
 
 $urls = array();
 $all = file_get_contents($URL); 
@@ -68,7 +71,7 @@ foreach ($urls as $index => $url) {
 
     $i = 1;
     foreach($html->find('table[class=tablesaw]') as $element) {
-        if ($i == get_home($url)) {
+        if ($i == get_home($url, $TEAM)) {
             $table = $element;
             break;
         }
@@ -101,7 +104,7 @@ foreach ($urls as $index => $url) {
 
     $i = 1;
     foreach($html->find('table[class=tablesaw]') as $element) {
-        if ($i != get_home($url)) {
+        if ($i != get_home($url, $TEAM)) {
             $table = $element;
             break;
         }
