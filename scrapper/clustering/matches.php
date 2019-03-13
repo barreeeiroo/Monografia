@@ -11,6 +11,8 @@ $SEASON = "2018";
 $LEAGUE = "55"; // Spanish-LEB-Gold
 $MAX_PAGES = 2;
 
+$POSITIONS = ['PG', 'SG', 'SF', 'PF', 'C'];
+
 
 
 $out = array();
@@ -47,16 +49,15 @@ while ($page<=$MAX_PAGES) {
 $f = fopen(__DIR__."/out1.json","wb");
 fwrite($f, json_encode($out));
 fclose($f);
-print("FINISHED PART 1\n");
+print("FINISHED AVERAGES\n");
 
 
 
 $out = array();
 $keys = array();
-$page = 1;
 
-while ($page<=$MAX_PAGES) {
-    $URL = "https://basketball.realgm.com/international/league/".$LEAGUE."/League/stats/".$SEASON."/Advanced_Stats/Qualified/All/points/All/desc/".$page;
+foreach ($POSITIONS as $id => $pos) {
+    $URL = "https://basketball.realgm.com/international/league/".$LEAGUE."/League/stats/".$SEASON."/Advanced_Stats/Qualified/All/points/".$pos."/desc/1";
 
     $html = str_get_html(file_get_contents($URL));
     $table = $html->find('table[class=tablesaw]')[0];
@@ -70,6 +71,7 @@ while ($page<=$MAX_PAGES) {
                 $rowData[$keys[$i]] = empty($txt)?$cell->innertext:$txt;
                 $i++;
             }
+            $rowData['POS'] = $id;
             $out[] = $rowData;
         }
         if (empty($keys)) {
@@ -79,13 +81,12 @@ while ($page<=$MAX_PAGES) {
             }
         }
     }
-    $page++;
+    print("FINISHED ".$pos." (".$id.")\n");
 }
 
 $f = fopen(__DIR__."/out2.json","wb");
 fwrite($f, json_encode($out));
 fclose($f);
-print("FINISHED PART 2\n");
 
 
 
@@ -96,7 +97,7 @@ $f0 = array();
 
 foreach ($f1 as $player1) {
     foreach ($f2 as $player2) {
-        if ($player1['Player'] == $player2['Player']) {
+        if ($player1['Player'] == $player2['Player'] && preg_match("/[a-z]/i", $player1['Player'])) {
             $f0[] = array_merge($player1, $player2);
             break;
         }
