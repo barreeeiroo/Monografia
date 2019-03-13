@@ -1,6 +1,6 @@
 # Four Factors
 
-En esta carpeta se encuentra el software para el primer bloque del trabajo: machine learning supervisado. 
+En esta carpeta se encuentra el software para el primer bloque del trabajo: machine learning supervisado.  
 
 Se trata de un análisis de los four factors de un equipo dado para obtener cuales son de mayor importancia a la hora de decantar la victoria.
 
@@ -10,9 +10,18 @@ En la carpeta `fourFactors/` se puede encontrar los siguientes archivos:
 
 ```bash
 .
-├── generate.py - Genera los four factors a partir de los datos CSV dados
-└── script.py   - Obtiene los pesos de los four factors
+├── fourFactors.csv            - Autogenerado. Contiene los cuatro (ocho en realidad) factores de cada partido.
+├── Four Factors.ipynb         - Libreta de Python del análisis de los Four Factors para predecir victorias.
+├── generate.py                - Genera los four factors a partir de los datos CSV dados
+├── Regresion Logistica.ipynb  - Libreta de Python del análisis (sin buenas conclusiones) de la regresión logística para predecir victorias.
+└── script.py                  - Obtiene los pesos de los four factors
 ```
+
+## iPython Notebooks
+
+- `Four Factors.ipynb`: Libreta principal, contiene todo el trabajo detallado paso a paso y explicado, junto con las primeras conclusiones. La más positiva de todas, acierta todas (o todas excepto una) las victorias del equipo de la muestra de prueba.
+
+- `Regresion Logistica.ipynb`: Libreta secundaria, contiene el trabajo de prueba con la regresión logística para predecir victorias, pero con resultados no muy positivos.
 
 ## Uso de los archivos
 
