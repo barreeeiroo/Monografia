@@ -1,6 +1,7 @@
-scrapper/fourFactors/out\.json
-scrapper/fourFactors/csv/*
-!scrapper/fourFactors/csv/.gitkeep
+*.csv
+*.json
 
-fourFactors/fourFactors\.csv
+scrapper/fourFactors/csv/*
+!.gitkeep
+
 fourFactors/\.ipynb_checkpoints/
