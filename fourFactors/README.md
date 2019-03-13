@@ -33,8 +33,8 @@ En la carpeta `fourFactors/` se puede encontrar los siguientes archivos:
 
 Para poder simular este proyecto, hace falta ejecutar los siguientes archivos en este orden:
 
-1. `php Monografia/scrapper/fourFactors/matches.php`
-2. `python3 Monografia/fourFactors/generate.py`
+1. `php Monografia/scrapper/fourFactors/matches.php` _Opcional: Sólo en caso de querer usar nuevos datos_
+2. `python3 Monografia/fourFactors/generate.py` _Opcional: Sólo en caso de querer usar nuevos datos_
 3. `python3 Monografia/fourFactors/script.py`
 
 El primero descarga los datos a CSV de forma masiva, el segundo obtiene los four factors y el tercero es el encargado de hacer machine learning.
