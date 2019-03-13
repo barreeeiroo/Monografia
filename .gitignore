@@ -5,3 +5,4 @@ scrapper/fourFactors/csv/*
 !.gitkeep
 
 fourFactors/\.ipynb_checkpoints/
+clustering/\.ipynb_checkpoints/
