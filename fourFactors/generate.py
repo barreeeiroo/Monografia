@@ -6,7 +6,7 @@ import csv
 import pandas as pd
 
 # Working directory
-datadir = os.path.dirname(__file__) + '/../scrapper/fourFactors/csv/'
+datadir = os.path.dirname(__file__) + '/../scraper/fourFactors/csv/'
 
 # Load all data files
 files = os.listdir(datadir)

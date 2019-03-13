@@ -22,7 +22,7 @@ from sklearn import datasets
 
 # Carga de datos del CSV
 wdir = os.path.dirname(__file__)
-leb_oro = pd.read_csv(wdir+'/../scrapper/clustering/out.csv')
+leb_oro = pd.read_csv(wdir+'/../scraper/clustering/out.csv')
 
 
 # Selección de las columnas útils (todas menos las de datos no estadísticos por defecto)

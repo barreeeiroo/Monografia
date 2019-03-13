@@ -26,7 +26,7 @@ En la carpeta `clustering/` se puede encontrar los siguientes archivos:
 
 Para poder simular este proyecto, hace falta ejecutar los siguientes archivos en este orden:
 
-1. `php Monografia/scrapper/clustering/matches.php` _Opcional: Sólo en caso de querer usar nuevos datos_
+1. `php Monografia/scraper/clustering/matches.php` _Opcional: Sólo en caso de querer usar nuevos datos_
 2. `python3 Monografia/clustering/script.py`
 
 El primero descarga los datos y genera el CSV, y el segundo se encarga de ejecutar el análisis de _machine learning_.

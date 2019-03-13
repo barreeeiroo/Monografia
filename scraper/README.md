@@ -1,4 +1,4 @@
-# Scrapper
+# Scraper
 
 En esta carpeta se encuentra el software para convertir los datos de la web RealGM Basketball a los adecuados para su manipulación en Python.  
 
@@ -6,7 +6,7 @@ El software para sacar los datos de RealGM fue primero diseñado para convertirl
 
 ## Estructura de los archivos
 
-En la carpeta `scrapper/` se puede encontrar los siguientes archivos:
+En la carpeta `scraper/` se puede encontrar los siguientes archivos:
 
 ```bash
 .
